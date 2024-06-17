@@ -1,6 +1,6 @@
 const express = require('express');
 const protectRoute = require("../middleware/protectRoute");
-const {  } = require('../controller/user');
+const { updateUserProfile } = require('../controller/user');
 const userRouter = express.Router();
 
 // userRouter.get('',protectRoute, abc);
