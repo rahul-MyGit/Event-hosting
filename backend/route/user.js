@@ -7,6 +7,6 @@ const userRouter = express.Router();
 // userRouter.get('',protectRoute, abc);
 // userRouter.post('',protectRoute, abc);
 userRouter.put('/update',protectRoute, updateUserProfile);
-
+userRouter.get('/users/:id', protectRoute, getUserDetails)
 
 module.exports = userRouter;

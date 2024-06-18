@@ -4,7 +4,10 @@ const dotenv = require('dotenv');
 
 
 const authRouter =  require('./route/auth');
-const userRouter =require("./route/user")
+const userRouter =require("./route/user");
+const eventRouter = require('./route/event');
+
+
 const protectRoute = require('./middleware/protectRoute');
 
 const app = express();
@@ -13,7 +16,9 @@ app.use(bodyParser.json());
 
 // Use the authentication routes
 app.use('/api/auth', authRouter);
-app.use('api/user', userRouter)
+app.use('/api/user', userRouter);
+app.use('/api/event', eventRouter);
+
 
 // Example of a protected route
 app.get('/protected-route', protectRoute, (req, res) => {
