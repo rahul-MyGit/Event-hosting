@@ -1,24 +1,19 @@
-import React from 'react';
+// src/components/EventListing.tsx
+// import React from 'react';
+// import { useQuery } from '@tanstack/react-query';
+// import { fetchEvents } from '../api/apiService';
 
+const EventListing: React.FC = () => {
+  // const { data, isLoading, error } = useQuery(['events'], fetchEvents);
 
-type Event = {
-  id: number;
-  title: string;
-  description: string;
-  date: string;
-  location: string;
-};
+  // if (isLoading) return <div>Loading...</div>;
+  // if (error) return <div>An error occurred: {error.message}</div>;
 
-type EventListingProps = {
-  events: Event[];
-};
-
-const EventListing: React.FC<EventListingProps> = ({ events }) => {
   return (
     <div>
       <h2>Upcoming Events</h2>
-      <ul>
-        {events.map((event) => (
+      {/* <ul>
+        {data?.data.map((event) => (
           <li key={event.id}>
             <h3>{event.title}</h3>
             <p>{event.description}</p>
@@ -26,7 +21,7 @@ const EventListing: React.FC<EventListingProps> = ({ events }) => {
             <p>{event.location}</p>
           </li>
         ))}
-      </ul>
+      </ul> */}
     </div>
   );
 };
