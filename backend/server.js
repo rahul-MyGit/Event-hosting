@@ -1,17 +1,23 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
-
+const cookieParser = require('cookie-parser');
+const cors = require('cors');
 
 const authRouter =  require('./route/auth');
 const userRouter =require("./route/user");
 const eventRouter = require('./route/event');
 
 
+dotenv.config();
 const protectRoute = require('./middleware/protectRoute');
 
+
 const app = express();
+
+app.use(cors());
 app.use(bodyParser.json());
+app.use(cookieParser());
 
 
 // Use the authentication routes

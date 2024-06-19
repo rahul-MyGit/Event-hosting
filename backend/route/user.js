@@ -1,12 +1,10 @@
 const express = require('express');
 const protectRoute = require("../middleware/protectRoute");
-const { updateUserProfile } = require('../controller/user');
+const { updateUserProfile, getUserDetails } = require('../controller/user');
 const userRouter = express.Router();
 
-// userRouter.get('',protectRoute, abc);
-// userRouter.get('',protectRoute, abc);
-// userRouter.post('',protectRoute, abc);
-userRouter.put('/update',protectRoute, updateUserProfile);
-userRouter.get('/users/:id', protectRoute, getUserDetails)
+
+userRouter.put('/update',protectRoute, updateUserProfile); // both of them
+userRouter.get('/users/:id', protectRoute, getUserDetails) // not needed now 
 
 module.exports = userRouter;
