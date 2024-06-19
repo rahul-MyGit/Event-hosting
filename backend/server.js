@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+const path = require('path');
 
 const authRouter =  require('./route/auth');
 const userRouter =require("./route/user");
@@ -24,6 +25,15 @@ app.use(cookieParser());
 app.use('/api/auth', authRouter);
 app.use('/api/user', userRouter);
 app.use('/api/event', eventRouter);
+
+if(process.env.NODE_ENV.trim() === "production"){
+  const parentDir = path.resolve(__dirname, '..');
+  app.use(express.static(path.join(parentDir, "/frontend/dist")));
+
+  app.get("*", (req,res)=>{
+    res.sendFile(path.resolve(parentDir, "frontend","dist","index.html"));
+  });
+}
 
 
 // Example of a protected route
