@@ -33,16 +33,22 @@ const App: React.FC = () => {
       </div>
     )
   }
-  console.log(authUser);
+  
+// email : "code4@gmail.com"
+// events : []
+// id : 7
+// name : "code4"
+  // console.log(authUser);
    
   return (
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/events" element={authUser ? <EventListing /> : <Navigate to={'/login'}/>} />
-        <Route path="/profile" element={authUser ? <UserProfile userId={authUser.id} /> : <Navigate to={'/login'}/>} />
+        <Route path="/user/:id" element={authUser ? <UserProfile /> : <Navigate to={'/login'}/>} />
         <Route path="/login" element={!authUser ? <Login /> : <Navigate to={'/events'}/>} />
         <Route path="/Signup" element={!authUser ? <Signup /> :  <Navigate to={'/events'}/>} />
+
       </Routes>
 
       <Toaster />
